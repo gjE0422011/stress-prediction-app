@@ -4,14 +4,12 @@ import numpy as np
 import os
 from model import train_and_save_model
 
-# Train model if not already saved
 if not os.path.exists("model.pkl"):
     train_and_save_model()
 
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
-# --- UI ---
 st.set_page_config(page_title="Stress Predictor", page_icon="🧠")
 st.title("🧠 AI Stress Prediction System")
 st.markdown("Enter your daily habits below to predict your stress level.")
@@ -38,13 +36,3 @@ if st.button("Predict Stress Level"):
 
 st.divider()
 st.caption("Built with Python, Scikit-learn & Streamlit")
-```
-
----
-
-### `requirements.txt`
-```
-streamlit
-scikit-learn
-pandas
-numpy
